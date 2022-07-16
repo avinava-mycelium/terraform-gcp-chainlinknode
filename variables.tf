@@ -1,6 +1,4 @@
-variable "project_id" {
-  default = "avian-direction-235610"
-}
+variable "project_id" {}
 variable "region" {}
 variable "zone" {}
 variable "subnetwork" {
