@@ -1,11 +1,10 @@
-# Compute Instance
+# Terraform module for Chainlink nodes
 
-This module is used to create compute instances (and only compute instances) using
-[google_compute_instance_from_template](https://www.terraform.io/docs/providers/google/r/compute_instance_from_template.html), with no instance groups.
+This module is used to create GCP resources to support Chainlink IAC setups.
 
 ## Usage
 
-See the [simple](https://github.com/terraform-google-modules/terraform-google-vm/tree/master/examples/compute_instance/simple) for a usage example.
+See the [simple](https://github.com/avinava-mycelium/terraform-gcp-chainlinknode) for a usage example.
 
 ## Testing
 
