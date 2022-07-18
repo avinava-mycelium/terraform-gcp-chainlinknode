@@ -31,8 +31,12 @@ See the [chainlink nodes](https://github.com/avinava-mycelium/chainlink-nodes) f
 
 | Name | Description |
 |------|-------------|
-| available\_zones | List of available zones in region |
-| instances\_details | List of all details for compute instances |
-| instances\_self\_links | List of self-links for compute instances |
+| disk\_names | The boot disk name of the node |
+| instance\_name | The name of the VM instance holding the node |
+| disk\_size | The disk size allocated to the node |
+| gcs\_startup\_script | The private bucket location for the startup script of the node |
+| external\_ip\_addresses | The public IP address of the node |
+| internal\_ip\_addresses | The internal static IP address of the node |
+| internal\_ip\_names | The internal static IP names of the node |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

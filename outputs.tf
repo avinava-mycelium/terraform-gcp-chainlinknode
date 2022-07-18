@@ -9,7 +9,7 @@ output "disk_name" {
 }
 
 output "disk_size" {
-  description = "The boot disk size of the node"
+  description = "The disk size allocated to the node"
   value = google_compute_instance.this.boot_disk[0].initialize_params[0].size
 }
 
