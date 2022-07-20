@@ -3,9 +3,11 @@ variable "project_id" {
 }
 variable "region" {
   description = "Region inside GCP where resources need to be deployed"
+  default = "us-central1"
 }
 variable "zone" {
   description = "Specific zone inside GCP region where resources need to be deployed"
+  default = "us-central1-a"
 }
 variable "subnetwork" {
   description = "Subnet CIDR for the chainlink nodes"
