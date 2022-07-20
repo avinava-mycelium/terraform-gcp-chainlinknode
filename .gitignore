@@ -2,3 +2,6 @@
 /.history
 .terraform
 terraform.tfvars
+service_account.json
+provider.tf
+state.tf
