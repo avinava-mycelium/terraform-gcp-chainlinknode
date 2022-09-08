@@ -52,10 +52,16 @@ variable "service_account_version" {
   description = "Service account version"
   default = "1"
 }
-variable "address_type" {
+variable "int_address_type" {
   description = "Type of address the VM instance. Can be internal or external."
   default = "INTERNAL"
 }
+
+variable "ext_address_type" {
+  description = "Type of address the VM instance. Can be internal or external."
+  default = "EXTERNAL"
+}
+
 variable "address_tier" {
   description = "Tier type for the address to be allocated to the chainlink node"
   default = "PREMIUM"
