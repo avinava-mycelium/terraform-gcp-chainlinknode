@@ -22,7 +22,7 @@ variable "machine_type" {
 }
 variable "boot_disk_size" {
   description = "Disk size for the chainlink node"
-  default = "50"
+  default = "10"
 }
 variable "boot_disk_type" {
   description = "Persistent SSD disk type for VM instance"

@@ -2,6 +2,7 @@ resource "google_compute_instance" "this" {
   name         = "${var.node_source}-${var.node_name}-${var.node_type}-${var.node_count}"
   machine_type = var.machine_type
   zone         = var.zone
+  allow_stopping_for_update = true
 
   tags = [var.network_tag] // firewall rules implemeted via network tags
 
@@ -17,9 +18,9 @@ resource "google_compute_instance" "this" {
   network_interface {
     network = var.network
     subnetwork = var.subnetwork
-    network_ip = module.address.addresses[0] // dynamic allocation of static internal IP
+    network_ip = module.int_address.addresses[0] // dynamic allocation of static internal IP
     access_config {
-      // kept blank as no specific need for external IP
+      nat_ip = module.ext_address.addresses[0] // dynamic allocation of static external IP
     }
   }
 
