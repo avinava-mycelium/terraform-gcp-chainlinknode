@@ -14,7 +14,6 @@ module "ext_address" {
   version      = "3.0.0"
   project_id   = var.project_id
   region       = var.region
-  subnetwork   = var.subnetwork
   names        = ["ip-ext-${var.node_source}-${var.node_name}-${var.node_type}-${var.node_count}"]
   address_type = var.ext_address_type
   network_tier = var.address_tier
