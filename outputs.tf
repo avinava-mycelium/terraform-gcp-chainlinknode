@@ -19,16 +19,21 @@ output "gcs_startup_script" {
 }
 
 output "external_ip_addresses" {
-  description = "The public IP address of the node"
-  value = google_compute_instance.this.network_interface[0].access_config[0].nat_ip
+  description = "The external static IP address of the node"
+  value = module.ext_address.addresses[0]
+}
+
+output "external_ip_names" {
+  description = "The external static IP name of the node"
+  value = module.ext_address.names[0]
 }
 
 output "internal_ip_addresses" {
   description = "The internal static IP address of the node"
-  value = module.address.addresses[0]
+  value = module.int_address.addresses[0]
 }
 
 output "internal_ip_names" {
-  description = "The internal static IP names of the node"
-  value = module.address.names[0]
+  description = "The internal static IP name of the node"
+  value = module.int_address.names[0]
 }
