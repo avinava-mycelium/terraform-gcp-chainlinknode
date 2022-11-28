@@ -28,7 +28,7 @@ resource "google_compute_instance" "this" {
     node = var.node_name
     type = var.node_type
     source = var.node_source
-    startup-script-url = "${var.startup_script_prefix}${var.node_name}-${var.node_type}-${var.startup_script_suffix}" // deployment script for application stored in a private bucket
+    startup-script-url = var.is_gen_startup_script ? var.vm_startup_script : "${var.startup_script_prefix}${var.node_name}-${var.node_type}-${var.startup_script_suffix}" // deployment script for application stored in a private bucket
   }
 
   service_account {
