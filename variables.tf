@@ -88,3 +88,13 @@ variable "startup_script_suffix" {
   description = "script name suffix"
   default = "startup.sh"
 }
+
+variable "is_gen_startup_script" {
+  description = "boolean to check if we want to go with particular script or generic one"
+  default = false
+}
+
+variable "vm_startup_script" {
+  description = "Generic startup script for VM"
+  default = "gs://myc-infra-scripts/startup-scripts/vm-startup-1.sh"
+}
