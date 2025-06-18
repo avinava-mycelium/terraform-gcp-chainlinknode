@@ -1,6 +1,6 @@
 module "int_address" {
   source       = "terraform-google-modules/address/google"
-  version      = "3.0.0"
+  version      = "3.1.1"
   project_id   = var.project_id
   region       = var.region
   subnetwork   = var.subnetwork
@@ -11,7 +11,7 @@ module "int_address" {
 
 module "ext_address" {
   source       = "terraform-google-modules/address/google"
-  version      = "3.0.0"
+  version      = "3.1.1"
   project_id   = var.project_id
   region       = var.region
   names        = ["ip-ext-${var.node_source}-${var.node_name}-${var.node_type}-${var.node_count}"]
