@@ -6,6 +6,109 @@ This module is used to create GCP resources to support Chainlink IAC setups.
 
 See the [chainlink nodes](https://github.com/avinava-mycelium/chainlink-nodes) for a usage example.
 
+```hcl
+module "chainlinknode" {
+  source  = "avinava-mycelium/chainlinknode/gcp"
+  version = "1.0.11"  # Use latest version for Apple Silicon compatibility
+  
+  # Required variables
+  project_id     = var.project_id
+  machine_type   = var.machine_type
+  node_name      = var.node_name
+  node_type      = var.node_type
+  boot_disk_size = var.boot_disk_size
+}
+```
+
+## Apple Silicon (M1/M2) Compatibility
+
+This module is fully compatible with Apple Silicon Macs starting from **version 1.0.11**. If you're using an M1/M2 Mac, make sure to use version `1.0.11` or later to avoid the deprecated template provider compatibility issues.
+
+## Release Process
+
+### Version Numbering
+This module follows [Semantic Versioning](https://semver.org/):
+- **MAJOR** (x.0.0): Breaking changes that require user action
+- **MINOR** (0.x.0): New features that are backward compatible  
+- **PATCH** (0.0.x): Bug fixes and improvements
+
+### Pre-Release Checklist
+Before creating a new release:
+
+1. **Test the changes locally**:
+   ```bash
+   terraform init
+   terraform plan
+   terraform validate
+   ```
+
+2. **Ensure compatibility**:
+   - Test on both Intel and Apple Silicon Macs
+   - Verify no deprecated provider dependencies
+   - Check that all required variables are documented
+
+3. **Update documentation**:
+   - Update this README if new variables/outputs are added
+   - Update examples if functionality changes
+   - Document any breaking changes
+
+### Release Steps
+
+1. **Prepare the release**:
+   ```bash
+   # Ensure you're on master and up to date
+   git checkout master
+   git pull origin master
+   
+   # Check current tags
+   git tag --sort=-version:refname | head -5
+   ```
+
+2. **Create and push the release**:
+   ```bash
+   # Create the new tag (replace x.y.z with actual version)
+   git tag vx.y.z
+   
+   # Push the tag to trigger Terraform Registry release
+   git push origin vx.y.z
+   ```
+
+3. **Verify the release**:
+   - Check that the new version appears on [Terraform Registry](https://registry.terraform.io/modules/avinava-mycelium/chainlinknode/gcp)
+   - Test the new version in a development environment
+   - Update production deployments as needed
+
+### Release Notes Template
+When creating a GitHub release, use this template:
+
+```markdown
+## vx.y.z - Release Title
+
+### 🚀 New Features
+- Feature description
+
+### 🐛 Bug Fixes  
+- Bug fix description
+
+### ⚠️ Breaking Changes
+- Breaking change description (for major versions only)
+
+### 📋 Notes
+- Additional notes or migration instructions
+```
+
+### Production Deployment Strategy
+- **Development environments**: Can use latest version immediately
+- **Production nodes**: Test in staging first, then gradual rollout
+- **Apple Silicon developers**: Always use version 1.0.11 or later
+
+### Rollback Process
+If a release has issues:
+1. Identify the last known good version
+2. Update module version in affected deployments
+3. Create a patch release with the fix
+4. Document the issue and resolution
+
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Inputs
 
